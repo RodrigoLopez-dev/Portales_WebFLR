@@ -1,27 +1,25 @@
 <?php
 
-session_start();
-date_default_timezone_set('America/Santiago');
-
+require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/database.php';
 
-if (!isset($_SESSION['userData']['cod_usuario'])) {
-    header('Location: ../login/logout.php');
-    exit;
-}
-
-$cod_privilegio = isset($_SESSION['userData']['cod_privilegio'])
-    ? (int) $_SESSION['userData']['cod_privilegio']
-    : 0;
-
-if ($cod_privilegio === 0) {
-    header('Location: ../login/restriccion.php');
-    exit;
-}
+captador_require_captadores();
 
 $captador_libre = new Database();
 $listado = $captador_libre->read();
 $ultima_actualizacion = $captador_libre->get_last_update();
+$mensajes = array(
+    'creado' => 'Captador creado correctamente.',
+    'actualizado' => 'Captador actualizado correctamente.',
+    'eliminado' => 'Captador eliminado correctamente.',
+    'error' => 'Ocurrió un error al procesar la solicitud.',
+    'datos_incompletos' => 'Debe completar los campos obligatorios.',
+    'email_invalido' => 'El email ingresado no es válido.',
+    'rut_invalido' => 'El RUT informado no es válido.',
+    'no_encontrado' => 'No se encontró el captador solicitado.',
+    'metodo_invalido' => 'Método de solicitud no permitido.',
+    'csrf_invalido' => 'La solicitud no es válida o expiró. Intente nuevamente.'
+);
 
 ?>
 <!DOCTYPE html>
@@ -80,8 +78,14 @@ $ultima_actualizacion = $captador_libre->get_last_update();
                 <div class="container-fluid">
 
                     <?php if (isset($_GET['mensaje'])): ?>
+                        <?php
+                        $mensajeKey = $_GET['mensaje'];
+                        $mensajeTexto = isset($mensajes[$mensajeKey])
+                            ? $mensajes[$mensajeKey]
+                            : 'Mensaje no reconocido.';
+                        ?>
                         <div class="alert alert-info">
-                            <?php echo htmlspecialchars($_GET['mensaje'], ENT_QUOTES, 'UTF-8'); ?>
+                            <?php echo h($mensajeTexto); ?>
                         </div>
                     <?php endif; ?>
 

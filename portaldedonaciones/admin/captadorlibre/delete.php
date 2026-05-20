@@ -1,29 +1,25 @@
 <?php
 
-session_start();
-date_default_timezone_set('America/Santiago');
-
+require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/database.php';
 
-if (!isset($_SESSION['userData']['cod_usuario'])) {
-    header('Location: ../login/logout.php');
+captador_require_captadores();
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('Location: index.php?mensaje=metodo_invalido');
     exit;
 }
 
-$database = new Database();
+captador_validate_csrf();
 
-$rut = '';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $rut = isset($_POST['rut']) ? trim($_POST['rut']) : '';
-} else {
-    $rut = isset($_GET['rut']) ? trim($_GET['rut']) : '';
-}
+$rut = isset($_POST['rut']) ? trim($_POST['rut']) : '';
 
 if ($rut === '') {
     header('Location: index.php?mensaje=rut_invalido');
     exit;
 }
+
+$database = new Database();
 
 $res = $database->delete($rut);
 

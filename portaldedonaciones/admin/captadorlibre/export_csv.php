@@ -1,14 +1,9 @@
 <?php
 
-session_start();
-date_default_timezone_set('America/Santiago');
-
+require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/database.php';
 
-if (!isset($_SESSION['userData']['cod_usuario'])) {
-    header('Location: ../login/logout.php');
-    exit;
-}
+captador_require_captadores();
 
 $database = new Database();
 
@@ -40,25 +35,26 @@ fputcsv(
         'Email',
         'Mes Ingreso',
         'Proyecto',
-        'Estado'
+        'Estado',
+        'Fecha Actualizacion'
     ),
     $delimiter
 );
 
 while ($row = $result->fetch_assoc()) {
-
     fputcsv(
         $output,
         array(
-            $row['codigo'],
-            $row['cod_POS'],
-            $row['rut'],
-            $row['nombre'],
-            $row['oficina'],
-            $row['email'],
-            $row['mes_ingreso'],
-            $row['proyecto'],
-            $row['estado']
+            isset($row['codigo']) ? $row['codigo'] : '',
+            isset($row['cod_POS']) ? $row['cod_POS'] : '',
+            isset($row['rut']) ? $row['rut'] : '',
+            isset($row['nombre']) ? $row['nombre'] : '',
+            isset($row['oficina']) ? $row['oficina'] : '',
+            isset($row['email']) ? $row['email'] : '',
+            isset($row['mes_ingreso']) ? $row['mes_ingreso'] : '',
+            isset($row['proyecto']) ? $row['proyecto'] : '',
+            isset($row['estado']) ? $row['estado'] : '',
+            isset($row['fecha_actualizacion']) ? $row['fecha_actualizacion'] : ''
         ),
         $delimiter
     );

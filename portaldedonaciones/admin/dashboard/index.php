@@ -20,7 +20,7 @@ if ($cod_privilegio === 0) {
 }
 
 if ($cod_privilegio === 2) {
-    header('Location: descargas2.php');
+    header('Location: descargas.php');
     exit;
 }
 
