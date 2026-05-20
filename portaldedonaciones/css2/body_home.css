@@ -1,0 +1,25 @@
+body {
+  font-family: "Gotham Rounded", sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  height: 626px;
+  position: relative;
+  background-image: url(../imagen/fondo/fondo1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(255,255,255,0.5);
+}
+
+.parrafo{
+  margin-left:100px;
+  margin-right:100px;
+}
+
+@media (max-width: 700px) {
+  .parrafo{
+    margin-left:30px;
+    margin-right:30px;
+  }
+}

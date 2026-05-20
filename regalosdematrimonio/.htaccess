@@ -1,0 +1,29 @@
+Options -Indexes
+RewriteEngine On
+RewriteBase /regalosdematrimonio/
+
+# Redirigir /admin a login
+RewriteRule ^admin/?$ admin/login/ [R=302,L]
+RewriteRule ^dashboard/?$ admin/login/ [R=302,L]
+RewriteRule ^login/?$ admin/login/ [R=302,L]
+
+# Bloquear archivos sensibles
+<FilesMatch "^(\.env|\.htaccess|error_log)$">
+    Require all denied
+</FilesMatch>
+
+# Bloquear carpetas internas sensibles
+RewriteRule ^config/ - [F,L]
+RewriteRule ^php/templates/ - [F,L]
+
+# No interferir con archivos o carpetas reales
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Permitir URLs sin .php
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php [L]
+
+# Sin router central por ahora
+# RewriteRule . index.php [L]

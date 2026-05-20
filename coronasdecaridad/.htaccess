@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+<IfModule mod_negotiation.c>
+        Options +ExecCGI
+        Options FollowSymLinks
+        Options -MultiViews
+    </IfModule>
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>

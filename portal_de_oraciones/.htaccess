@@ -1,0 +1,36 @@
+# =========================
+# Portal de Oraciones
+# .htaccess
+# =========================
+
+Options -Indexes
+
+RewriteEngine On
+
+# Forzar HTTPS
+# En local puede dar problemas si no usas https, así que puedes comentar esto en desarrollo
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Bloquear acceso a archivos sensibles
+<FilesMatch "^(\.env|\.git|\.htaccess|README\.txt)$">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "\.(env|ini|log|conf|sql|bak|sh)$">
+    Require all denied
+</FilesMatch>
+
+# Bloquear acceso directo a archivos internos sensibles de API
+<FilesMatch "^(bootstrap\.php|config\.php|db\.php|helpers\.php)$">
+    Require all denied
+</FilesMatch>
+
+# Headers de seguridad
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>

@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('../imagenes/fondo/fondo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #F2F2F2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.menu-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #de010a;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 999;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+}
+
+.logo img {
+    width: auto;
+    height: 70px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.menu-options {
+    margin-top: 13px;
+    margin-left: auto;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-options li {
+    margin-left: 20px;
+}
+
+.menu-options li a {
+    text-decoration: none;
+    color: #F2F2F2;
+    font-size: 16px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu-options {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #de010a;
+    }
+
+    .menu-options.active {
+        display: flex;
+    }
+}
+
+.container {
+    margin-top: 100px;
+}
+
+
+img#img-left {
+    width: 400px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+}
+
+h1, p {
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.donation {
+    height: 70px;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    border: none;
+    color: #F2F2F2;
+    background-color: #de010a;
+    cursor: pointer;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.donation:hover {
+    background-color: #ff4a50;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transform: scale(1.05);
+}
+
+.donation:focus {
+    outline: none;
+}
+
+.donation.selected {
+    background-color: #ff4a50;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.payment-button-group {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.payment-button {
+    
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: #ffffff;
+    height: 78px;
+    width: 149px;
+    background-size: 95%;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.payment-button:hover {
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transform: scale(1.05);
+}
+
+.payment-button img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#payment-modal .modal-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: auto;
+}
+
+#payment-modal .modal-content {
+    border-radius: 5px;
+    background-color: #F2F2F2;
+}
+
+#payment-modal .modal-body {
+    padding: 20px;
+}
+
+#payment-modal .form-label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    color: #050505;
+}
+
+#payment-modal .form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+#payment-modal .form-submit {
+    background-color: #de010a;
+    color: #F2F2F2;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Ancho del botón al 100% */
+}
+
+#payment-modal .form-submit:hover {
+    background-color: #a00e12;
+}
+
+#payment-modal .form-error {
+    color: #F2F2F2;
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+.col-md-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.donation-description {
+    font-size: 0.8em;
+    color: #ffffff;
+}
+
+
+.two-columns {
+    display: flex;
+}
+
+.two-columns > div {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.custom-footer {
+    padding: 10px 0;
+    color: white;
+    background: #de010a;
+    margin-top: 100px;
+}
+
+.footer-container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.footer-section {
+    margin: 10px;
+    margin-left: 80px;
+    margin-right: 80px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-logo {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+
+h4 {
+    margin-top: 0;
+}
+
+.social-icon {
+    width: 40px;
+    margin-right: 10px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #F2F2F2;
+}
+
