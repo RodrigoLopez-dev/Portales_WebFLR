@@ -21,25 +21,12 @@ class FintocAPI
 
     public function generateWidgetToken($amount, $order_id)
     {
-        $appBaseUrl = rtrim(env_value('APP_BASE_URL', ''), '/');
-        $appName = trim(env_value('APP_NAME', ''), '/');
-
-        if ($appBaseUrl === '') {
-            throw new Exception('APP_BASE_URL no está configurada.');
-        }
-
-        $appUrl = $appName !== '' ? $appBaseUrl . '/' . $appName : $appBaseUrl;
-
-        $portal = $appName !== '' ? $appName : 'portal';
-
         $data = array(
-            "amount" => (int) $amount,
+            "amount" => $amount,
             "currency" => "CLP",
-            "webhook_url" => $appUrl . '/pagos/fintoc/webhook.php',
             "metadata" => array(
-                "order_id" => (string) $order_id,
-                "portal" => $portal,
-                "origen" => $portal
+                "order_id" => $order_id,
+                "origen" => "portal"
             )
         );
 
@@ -53,14 +40,8 @@ class FintocAPI
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
 
         $response = curl_exec($ch);
-
-        if (env_value('APP_DEBUG', 'false') === 'true') {
-            error_log('FINTOC CREATE RESPONSE: ' . $response);
-        }
 
         if ($response === false) {
             $error = curl_error($ch);
@@ -68,13 +49,7 @@ class FintocAPI
             throw new Exception('Error CURL Fintoc: ' . $error);
         }
 
-        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-
         curl_close($ch);
-
-        if ($httpCode < 200 || $httpCode >= 300) {
-            throw new Exception('Error HTTP Fintoc ' . $httpCode . ': ' . $response);
-        }
 
         $responseObj = json_decode($response);
 

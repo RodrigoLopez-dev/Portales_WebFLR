@@ -71,12 +71,21 @@ function validate_webhook_token()
     $xWebhookToken = get_header_value($headers, 'x-webhook-token');
     $xApiKey = get_header_value($headers, 'x-api-key');
 
-    $validAuthorization = $authorization === 'Bearer ' . $expectedToken;
+    $authorizationToken = trim((string) $authorization);
+
+    if (stripos($authorizationToken, 'Bearer ') === 0) {
+        $authorizationToken = trim(substr($authorizationToken, 7));
+    }
+
+    $validAuthorization = $authorizationToken !== '' && hash_equals($expectedToken, $authorizationToken);
     $validWebhookToken = $xWebhookToken === $expectedToken;
     $validApiKey = $xApiKey === $expectedToken;
 
     if (!$validAuthorization && !$validWebhookToken && !$validApiKey) {
         mach_log('Token webhook inválido.');
+
+        $debugPayload = file_get_contents('php://input');
+
         respond(401, 'Unauthorized');
     }
 }

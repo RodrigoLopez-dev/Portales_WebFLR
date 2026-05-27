@@ -1,21 +1,47 @@
 <?php
-
 require_once __DIR__ . '/../../config/env.php';
 
 load_env(__DIR__ . '/../../.env');
 
 $fintocPublicKey = env_value('FINTOC_PUBLIC_KEY', '');
-$fintocWebhookUrl = env_value('FINTOC_WEBHOOK_URL', '');
+
+$appBaseUrl = rtrim(env_value('APP_BASE_URL', ''), '/');
+$appName = trim(env_value('APP_NAME', ''), '/');
 
 if (empty($fintocPublicKey)) {
     die('FINTOC_PUBLIC_KEY no configurada.');
 }
 
-if (empty($fintocWebhookUrl)) {
-    die('FINTOC_WEBHOOK_URL no configurada.');
+if (empty($appBaseUrl)) {
+    die('APP_BASE_URL no configurada.');
 }
 
+if (empty($appName)) {
+    die('APP_NAME no configurada.');
+}
+
+if (!isset($result['widget_token'], $amount, $order_id)) {
+    die('Datos incompletos para iniciar Fintoc.');
+}
+
+$appUrl = $appBaseUrl . '/' . $appName;
+
+$fintocWebhookUrl = $appUrl . '/pagos/fintoc/webhook.php';
+
+$paymentIntentId = isset($result['id']) ? $result['id'] : '';
+
+$successUrl = $appUrl . '/pagos/fintoc/espera.php?monto=' . urlencode($amount)
+    . '&id=' . urlencode($order_id)
+    . '&payment_intent_id=' . urlencode($paymentIntentId)
+    . '&medio_pago=' . urlencode('Transferencia(fintoc)');
+
+$exitUrl = $appUrl . '/';
+$errorUrl = $appUrl . '/fallo';
+
+error_log('FINTOC WEBHOOK URL: ' . $fintocWebhookUrl);
+error_log('FINTOC SUCCESS URL: ' . $successUrl);
 ?>
+
 <!DOCTYPE html>
 
 <html>
@@ -29,61 +55,47 @@ if (empty($fintocWebhookUrl)) {
     <div id="fintoc-container"></div>
 
     <script>
-        // Configura las opciones del widget
+        const successUrl = <?php echo json_encode($successUrl); ?>;
+        const exitUrl = <?php echo json_encode($exitUrl); ?>;
+        const errorUrl = <?php echo json_encode($errorUrl); ?>;
+
         const options = {
             holderType: 'individual',
             product: 'payments',
-
             publicKey: <?php echo json_encode($fintocPublicKey); ?>,
-
             webhookUrl: <?php echo json_encode($fintocWebhookUrl); ?>,
-
             country: 'cl',
-
-            widgetToken: '<?php echo $result['widget_token']; ?>',
+            widgetToken: <?php echo json_encode($result['widget_token']); ?>,
 
             onSuccess: function () {
                 console.log('¡Conexión exitosa!');
-                window.location.href = '../exito.php?monto=<?php echo $amount ?>&id=<?php echo $order_id ?>&medio_pago=Transferencia(fintoc)';
+                window.location.href = successUrl;
             },
 
             onExit: function () {
                 console.log('Widget cerrado por el usuario');
-                window.location.href = '../../';
+                window.location.href = exitUrl;
             },
 
             onEvent: function (event) {
                 console.log('Evento ocurrido: ', event);
 
-                if (event == 'payment_created') {
-
-                    setTimeout(function () {
-
-                        window.location.href = '../exito.php?monto=<?php echo $amount ?>&id=<?php echo $order_id ?>&medio_pago=Transferencia(fintoc)';
-
-                    }, 3000);
-
+                if (event === 'payment_created') {
+                    console.log('Pago creado. Esperando confirmación por webhook.');
                 }
 
-                if (event == 'payment_error') {
-
+                if (event === 'payment_error') {
                     setTimeout(function () {
-
-                        window.location.href = '../../fallo';
-
+                        window.location.href = errorUrl;
                     }, 3000);
-
                 }
             }
         };
 
-        // Inicializa y abre el widget cuando la página se carga
         window.onload = function () {
-
             const widget = Fintoc.create(options);
-
             widget.open();
-        }
+        };
     </script>
 </body>
 
