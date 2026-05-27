@@ -1,0 +1,191 @@
+body {
+    background: #f5f7fb;
+}
+
+.card {
+    border: 0;
+    border-radius: 14px;
+}
+
+/* .table th {
+    white-space: nowrap;
+} */
+
+.table th,
+.table td {
+    white-space: normal;
+    font-size: 13px;
+    padding: 0.5rem;
+}
+
+.history-box {
+    max-height: 640px;
+    overflow-y: auto;
+}
+
+.timeline-item {
+    border-left: 3px solid #0d6efd;
+    padding-left: 12px;
+}
+
+.comment-item,
+.attachment-item {
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 12px;
+    background: #fff;
+}
+
+.kpi-card .display-6 {
+    font-size: 2rem;
+}
+
+.kanban-wrapper {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 16px;
+}
+
+.kanban-column {
+    min-width: 320px;
+    max-width: 320px;
+    background: #eef2f7;
+    border-radius: 14px;
+    padding: 12px;
+    flex: 0 0 auto;
+}
+
+.kanban-header {
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.kanban-body {
+    min-height: 420px;
+}
+
+.kanban-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    cursor: grab;
+}
+
+.kanban-card.dragging {
+    opacity: 0.6;
+}
+
+.kanban-code {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-bottom: 6px;
+}
+
+.kanban-title {
+    font-weight: 600;
+}
+
+.dropzone-over {
+    outline: 2px dashed #0d6efd;
+    outline-offset: 4px;
+    border-radius: 12px;
+}
+
+.progress {
+    height: 20px;
+}
+
+@media (max-width: 768px) {
+    .kanban-column {
+        min-width: 280px;
+        max-width: 280px;
+    }
+}
+/* Planning show/detail view */
+.planning-show-page .card,
+.planning-show-page .btn,
+.planning-show-page .form-control,
+.planning-show-page .form-select {
+    border-radius: 12px;
+}
+
+.planning-show-page .card-header {
+    border-bottom: 1px solid #edf1f5;
+    padding: 0.85rem 1rem;
+}
+
+.planning-summary-card {
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+}
+
+.planning-progress-lg {
+    height: 24px;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.planning-progress-sm {
+    height: 18px;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.planning-kpis .card-body {
+    padding: 1rem 1.1rem;
+}
+
+.planning-card .form-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #495057;
+}
+
+.planning-milestone-list,
+.planning-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.planning-milestone-item,
+.planning-history-item {
+    border: 1px solid #edf1f5;
+    border-left: 4px solid #0d6efd;
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 0.85rem 1rem;
+}
+
+.planning-task-table th {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #6c757d;
+    white-space: nowrap;
+}
+
+.planning-task-table td {
+    vertical-align: middle;
+}
+
+.planning-task-edit-row td {
+    background: #f8fafc;
+    border-top: 0;
+    padding: 0.85rem 1rem;
+}
+
+.planning-task-edit-row .form-label {
+    margin-bottom: 0.25rem;
+}
+
+@media (max-width: 991.98px) {
+    .planning-show-page .d-flex.justify-content-between {
+        align-items: flex-start !important;
+    }
+}

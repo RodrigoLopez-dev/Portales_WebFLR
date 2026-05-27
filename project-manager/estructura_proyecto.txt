@@ -1,0 +1,328 @@
+.
+├── .htaccess
+├── README.md
+├── README.txt
+├── app
+│   ├── Controllers
+│   │   ├── AuditController.php
+│   │   ├── AuthController.php
+│   │   ├── DashboardController.php
+│   │   ├── DocumentController.php
+│   │   ├── NotificationController.php
+│   │   ├── PlanningController.php
+│   │   ├── ProjectResourceController.php
+│   │   ├── RequestController.php
+│   │   └── UserController.php
+│   ├── Core
+│   │   ├── Auth-x.php
+│   │   ├── Auth.php
+│   │   ├── Controller.php
+│   │   ├── Database.php
+│   │   └── Model.php
+│   ├── Helpers
+│   │   └── functions.php
+│   ├── Models
+│   │   ├── AuditLog.php
+│   │   ├── Dashboard.php
+│   │   ├── Document-x.php
+│   │   ├── Document.php
+│   │   ├── Milestone.php
+│   │   ├── Notification.php
+│   │   ├── Phase.php
+│   │   ├── Plan.php
+│   │   ├── ProjectResource.php
+│   │   ├── Request.php
+│   │   ├── Task.php
+│   │   └── User.php
+│   ├── Services
+│   │   ├── AuditService.php
+│   │   └── NotificationService.php
+│   ├── Views
+│   │   ├── audit
+│   │   │   ├── index - copia.php
+│   │   │   └── index.php
+│   │   ├── auth
+│   │   │   └── login.php
+│   │   ├── dashboard
+│   │   │   └── index.php
+│   │   ├── documents
+│   │   │   ├── create.php
+│   │   │   ├── index.php
+│   │   │   └── show.php
+│   │   ├── layouts
+│   │   │   ├── footer.php
+│   │   │   └── header.php
+│   │   ├── notifications
+│   │   │   └── index.php
+│   │   ├── planning
+│   │   │   ├── create.php
+│   │   │   ├── gantt.php
+│   │   │   ├── index.php
+│   │   │   └── show.php
+│   │   ├── requests
+│   │   │   ├── create.php
+│   │   │   ├── form.php
+│   │   │   ├── index.php
+│   │   │   ├── kanban.php
+│   │   │   ├── show.php
+│   │   │   └── view.php
+│   │   ├── resources
+│   │   │   ├── create.php
+│   │   │   ├── edit.php
+│   │   │   └── index.php
+│   │   └── users
+│   │       ├── create.php
+│   │       ├── edit.php
+│   │       └── index.php
+│   ├── console
+│   │   └── CheckDeadlines.php
+│   └── middleware
+├── bootstrap
+│   └── app.php
+├── config
+│   ├── app.php
+│   ├── database.php
+│   ├── google.php
+│   ├── mail.php
+│   └── routes.php
+├── database
+│   └── project_manager.sql
+├── error_log
+├── estructura_proyecto.txt
+├── index.php
+├── lib
+│   └── mail_flr.php
+├── logo
+│   └── logo_flr.png
+├── phpmailer
+│   └── src
+│       ├── DSNConfigurator.php
+│       ├── Exception.php
+│       ├── OAuth.php
+│       ├── OAuthTokenProvider.php
+│       ├── PHPMailer.php
+│       ├── POP3.php
+│       └── SMTP.php
+├── public
+│   ├── .htaccess
+│   ├── css
+│   │   └── styles.css
+│   ├── index.php
+│   ├── js
+│   │   └── kanban.js
+│   └── uploads
+│       ├── document_types
+│       │   ├── 1
+│       │   │   └── 20260424_120321_69eb9449004e6_projectcharter-ejemplo1-V1.pdf
+│       │   ├── 10
+│       │   │   └── 20260424_204851_69ec0f73dc14a_Plantilla_CP_Caso-de-Prueba-v1.docx
+│       │   ├── 11
+│       │   │   └── 20260424_210445_69ec132d58d5a_Plantilla_Protocolo_de_paso_a_producci__n-v1.pdf
+│       │   ├── 12
+│       │   │   └── 20260424_210533_69ec135d20016_Plantilla_Acta_de_cierre_del_proyecto-v1.pdf
+│       │   ├── 13
+│       │   │   └── 20260505_182653_69fa6eadc674b_T-ESPESD-003246.pdf
+│       │   ├── 20260424_133410_69eba992f3951_NDA_Acuerdo-Confidencialidad-Ejemplo1-v1.pdf
+│       │   ├── 20260424_133520_69eba9d8aeac7_CPSP_Contrato-de-Prestacion-de-Servicios-de-profesional-Ejemplo1-v1.docx
+│       │   ├── 20260424_191322_69ebf9129c5cd_Documento_de_Requisitos_Ejemplo1-v1.dot
+│       │   ├── 20260424_195355_69ec02932f462_projectcharter-plantilla-V1.pdf
+│       │   ├── 20260424_195601_69ec03112c7a9_Documento_de_Requisitos_Plantilla-v1.dot
+│       │   ├── 27
+│       │   │   └── 20260424_120404_69eb9474431f6_projectcharter-ejemplo1-V2.pdf
+│       │   ├── 3
+│       │   │   └── 20260424_202945_69ec0af94e18b_Plantilla_NDA_Acuerdo-Confidencialidad-v1.pdf
+│       │   ├── 4
+│       │   │   └── 20260424_203123_69ec0b5bcb1c0_Plantilla_CPSP_Contrato-de-Prestacion-de-Servicios-de-profesional-v1.docx
+│       │   ├── 5
+│       │   │   └── 20260424_203225_69ec0b99c72b1_Plantilla_DAT_Anexo-Tecnico-v1.pdf
+│       │   ├── 6
+│       │   │   └── 20260424_203319_69ec0bcf19538_Plantilla_ANS_Acuerdo-Nivel-Servicio-v1.pdf
+│       │   ├── 7
+│       │   │   └── 20260424_204518_69ec0e9e7024d_Plantilla_TDD_Documento_dise__o_t__cnico-v1.docx
+│       │   ├── 8
+│       │   │   └── 20260424_204630_69ec0ee65b75b_Plantilla_QAP_Plan-de-pruebas-v1.pdf
+│       │   └── 9
+│       │       └── 20260424_204746_69ec0f32456cd_Plantilla_bitacoras-con-los-procesos-documentados-v1.pdf
+│       └── requests
+│           ├── 1
+│           │   └── documents
+│           │       ├── 20260421_162753_69e7ddc95f06a_1.-_Plantilla_Project_Charter__1_.docx
+│           │       ├── 20260421_162854_69e7de060419b_Gestor_de_Proyectos.pdf
+│           │       ├── 20260421_163015_69e7de57ceebd_Gestor_de_Proyectos.pdf
+│           │       ├── 20260421_163021_69e7de5d7d534_Gestor_de_Proyectos.pdf
+│           │       ├── 20260421_163026_69e7de624b77e_Gestor_de_Proyectos.pdf
+│           │       ├── 20260421_163058_69e7de82b971d_Gestor_de_Proyectos.pdf
+│           │       ├── 20260421_163142_69e7deae56ee7_Gestor_de_Proyectos.pdf
+│           │       ├── 20260421_163147_69e7deb3be580_Gestor_de_Proyectos.pdf
+│           │       ├── 20260421_163154_69e7deba88c94_Gestor_de_Proyectos.pdf
+│           │       ├── 20260421_163159_69e7debf29e54_Gestor_de_Proyectos.pdf
+│           │       ├── 20260421_163228_69e7dedc654a1_Gestor_de_Proyectos.pdf
+│           │       ├── 20260421_163234_69e7dee2a0624_Gestor_de_Proyectos.pdf
+│           │       ├── 20260421_163239_69e7dee76a418_Gestor_de_Proyectos.pdf
+│           │       ├── 20260421_163244_69e7deec5f896_Gestor_de_Proyectos.pdf
+│           │       ├── 20260421_163311_69e7df07345d6_Gestor_de_Proyectos.pdf
+│           │       └── 20260421_163324_69e7df14e8f7e_Gestor_de_Proyectos.pdf
+│           ├── 10
+│           │   └── documents
+│           │       ├── 20260505_194220_69fa805c71f69_T-ESPESD-003246.pdf
+│           │       └── 20260507_091413_69fc90256ebb9_reporte_cambios.txt
+│           ├── 11
+│           │   └── documents
+│           │       ├── 20260505_195539_69fa837b3e082_T-ESPESD-003246.pdf
+│           │       └── 20260509_142643_69ff7c63e1c11_Bitacoras-con-los-procesos-documentados-Ejemplo-v3.pdf
+│           ├── 12
+│           │   └── documents
+│           │       ├── 20260506_091048_69fb3dd899c7a_projectcharter-ejemplo2-V2.pdf
+│           │       ├── 20260507_090000_69fc8cd09e719_README.txt
+│           │       ├── 20260507_090742_69fc8e9e9eb0d_Versiones.txt
+│           │       ├── 20260507_143419_69fcdb2b6f2f6_Versiones.txt
+│           │       ├── 4313596e123cc8550d6e6dd47c0ae85b.pdf
+│           │       ├── 993ed76fa5f7ca9142a526036a401d44.docx
+│           │       └── 9f9ee8a8951ca5ad472a3f2ac8adab14.docx
+│           ├── 13
+│           │   ├── documents
+│           │   │   ├── 20260506_105558_69fb567e143c8_T-ESPESD-003246.pdf
+│           │   │   ├── 20260506_105716_69fb56cc32082_Bitacoras-con-los-procesos-documentados-Ejemplo-v3.pdf
+│           │   │   ├── 20260506_110006_69fb57766499e_CP_Caso-de-Prueba-v3.docx
+│           │   │   ├── 20260506_110113_69fb57b9032e2_Instructivo_paso_produccion-Ejemplo-v3.pdf
+│           │   │   └── 20260506_110327_69fb583f6f494_Acta_de_cierre_del_proyecto-Ejemplo-v3.pdf
+│           │   └── resources
+│           │       └── 20260506_105905_69fb5739ad3372.13144553_image.png
+│           ├── 14
+│           │   └── resources
+│           │       └── 20260507_091140_69fc8f8cf0b907.19626982_reporte_cambios.txt
+│           ├── 15
+│           │   ├── documents
+│           │   │   ├── 073eaef5a94a03aa7c7b63aab19dcbc8.pdf
+│           │   │   ├── 7798494db72dcac2a36857a2746a9642.pdf
+│           │   │   ├── 7917b73d199bb9653e8f06e7009faade.pdf
+│           │   │   ├── 8a58066ac43c77a34c07a39d284c9195.txt
+│           │   │   └── 9c9e812b680198db43b2837c9742c46e.pdf
+│           │   └── resources
+│           │       └── 20260507_121941_69fcbb9d152ae0.54035203_image.png
+│           ├── 2
+│           │   └── documents
+│           │       ├── 20260421_200555_69e810e3990fd_ColoniaCristian_2021_RoboticaProcesosEscritorio.pdf
+│           │       ├── 20260421_200630_69e811063ca4c_V2_ColoniaCristian_2021_RoboticaProcesosEscritorio.pdf
+│           │       ├── 20260421_200650_69e8111a2e73e_ColoniaCristian_2021_RoboticaProcesosEscritorio.pdf
+│           │       ├── 20260421_200656_69e81120034f8_V2_ColoniaCristian_2021_RoboticaProcesosEscritorio.pdf
+│           │       ├── 20260421_200702_69e811269da0c_T-ESPESD-003246.pdf
+│           │       ├── 20260421_200709_69e8112d849f7_T-ESPESD-003246.pdf
+│           │       ├── 20260421_200733_69e811457a43d_V2_ColoniaCristian_2021_RoboticaProcesosEscritorio.pdf
+│           │       ├── 20260421_200802_69e81162797ca_ColoniaCristian_2021_RoboticaProcesosEscritorio.pdf
+│           │       ├── 20260421_200807_69e8116784ec6_T-ESPESD-003246.pdf
+│           │       ├── 20260421_200814_69e8116e0c44a_V2_ColoniaCristian_2021_RoboticaProcesosEscritorio.pdf
+│           │       ├── 20260424_214134_69ec1bce6ce37_projectcharter-ejemplo1-V1.pdf
+│           │       ├── 20260424_214318_69ec1c36b4ad8_projectcharter-ejemplo1-V1.pdf
+│           │       ├── 20260425_154931_69ed1acb26c85_projectcharter-ejemplo1-V1.pdf
+│           │       ├── 20260425_155005_69ed1aed32273_Documento_de_Requisitos_Ejemplo1-v1.dot
+│           │       ├── 20260425_161046_69ed1fc6bfc0d_Documento_de_Requisitos_Plantilla-v1.dot
+│           │       ├── 20260425_161205_69ed2015ef042_TDD_Documento_dise__o_t__cnico-Ejemplo1-V1.docx
+│           │       ├── 20260425_161254_69ed2046e2ed1_Bitacoras-con-los-procesos-documentados-Ejemplo-v1.pdf
+│           │       ├── 20260425_161426_69ed20a2e84fd_CP_Caso-de-Prueba-v1.docx
+│           │       ├── 20260425_161449_69ed20b94e1bf_Instructivo_paso_produccion-Ejemplo-v1.pdf
+│           │       └── 20260425_163043_69ed2473c91b8_Acta_de_cierre_del_proyecto-Ejemplo-v1.pdf
+│           ├── 3
+│           │   └── documents
+│           │       ├── 20260422_085716_69e8c5ac483b7_ColoniaCristian_2021_RoboticaProcesosEscritorio.pdf
+│           │       ├── 20260422_085838_69e8c5feb798f_V2_ColoniaCristian_2021_RoboticaProcesosEscritorio.pdf
+│           │       ├── 20260422_093414_69e8ce56e2de2_T-ESPESD-003246.pdf
+│           │       ├── 20260425_201912_69ed5a0054ad7_projectcharter-ejemplo1-V2.pdf
+│           │       ├── 20260425_201930_69ed5a12accf8_Documento_de_Requisitos_Ejemplo1-v1.dot
+│           │       ├── 20260425_202002_69ed5a329d328_ANS_Acuerdo-Nivel-Servicio-Ejemplo1-v2.pdf
+│           │       ├── 20260425_202036_69ed5a5465300_CPSP_Contrato-de-Prestacion-de-Servicios-de-profesional-Ejemplo1-v1.docx
+│           │       ├── 20260425_202111_69ed5a777d334_TDD_Documento_dise__o_t__cnico-Ejemplo1-V1.docx
+│           │       ├── 20260425_202156_69ed5aa40fc3f_Bitacoras-con-los-procesos-documentados-Ejemplo-v2.pdf
+│           │       ├── 20260425_202214_69ed5ab69fe07_CP_Caso-de-Prueba-v2.docx
+│           │       ├── 20260425_202237_69ed5acdeb63a_Instructivo_paso_produccion-Ejemplo-v2.pdf
+│           │       └── 20260425_202259_69ed5ae339a76_Acta_de_cierre_del_proyecto-Ejemplo-v2.pdf
+│           ├── 4
+│           │   └── documents
+│           │       ├── 20260422_130820_69e9008429881_projectcharter-ejemplo1.pdf
+│           │       ├── 20260422_131226_69e9017a66b92_projectcharter-ejemplo1-V2.pdf
+│           │       ├── 20260422_133102_69e905d6a4857_Documento_de_Requisitos_Ejemplo1-v1.dot
+│           │       ├── 20260422_133137_69e905f949e47_Documento_de_Requisitos_Ejemplo1-v2.dot
+│           │       ├── 20260422_142418_69e912524be7b_NDA_Acuerdo-Confidencialidad-Ejemplo1-v1.pdf
+│           │       ├── 20260422_142431_69e9125f02c08_CPSP_Contrato-de-Prestacion-de-Servicios-de-profesional-Ejemplo1-v1.docx
+│           │       ├── 20260422_144950_69e9184e6e507_CPSP_Contrato-de-Prestacion-de-Servicios-de-profesional-Ejemplo1-v2.docx
+│           │       ├── 20260422_154720_69e925c8394cf_TDD_Documento_dise__o_t__cnico-Ejemplo1-V1.docx
+│           │       ├── 20260422_155606_69e927d668f59_gantt-chart-template.xlsx
+│           │       ├── 20260422_155629_69e927ed5f23b_gantt-chart-template.xlsx
+│           │       ├── 20260422_160030_69e928de5cacb_QAP_Plan-de-pruebas-Ejemplo1-v1.pdf
+│           │       ├── 20260422_185017_69e950a9767b7_bitacoras-con-los-procesos-documentados.pdf
+│           │       ├── 20260422_185032_69e950b88efe0_bitacoras-con-los-procesos-documentados.pdf
+│           │       ├── 20260423_090719_69ea198797520_CP_Caso-de-Prueba_Ejemplo1-v1.docx
+│           │       ├── 20260423_090750_69ea19a619476_CP_Caso-de-Prueba_Ejemplo1-v1.docx
+│           │       ├── 20260423_091209_69ea1aa9c4e7b_629920647-QA2-Concepto-de-Casos-de-Pruebas.pdf
+│           │       ├── 20260423_091221_69ea1ab55eaa3_621971977-Listado-de-Casos-de-Prueba-y-Matriz-de-Trazabiliad.xlsx
+│           │       ├── 20260423_091350_69ea1b0eb0dde_629920647-QA2-Concepto-de-Casos-de-Pruebas.pdf
+│           │       ├── 20260423_091403_69ea1b1b33d04_629920647-QA2-Concepto-de-Casos-de-Pruebas.pdf
+│           │       ├── 20260423_091414_69ea1b2637278_629920647-QA2-Concepto-de-Casos-de-Pruebas.pdf
+│           │       ├── 20260423_091431_69ea1b372848d_629920647-QA2-Concepto-de-Casos-de-Pruebas.pdf
+│           │       ├── 20260423_091442_69ea1b4282e85_629920647-QA2-Concepto-de-Casos-de-Pruebas.pdf
+│           │       ├── 20260423_091504_69ea1b586ca0a_629920647-QA2-Concepto-de-Casos-de-Pruebas.pdf
+│           │       ├── 20260423_091516_69ea1b64a112e_629920647-QA2-Concepto-de-Casos-de-Pruebas.pdf
+│           │       ├── 20260425_205321_69ed6201df8ff_projectcharter-ejemplo1-V3.pdf
+│           │       ├── 20260425_205418_69ed623aab469_Documento_de_Requisitos_Ejemplo1-v3.dot
+│           │       ├── 20260426_161337_69ee71f19b6b0_ANS_Acuerdo-Nivel-Servicio-Ejemplo2-v1.pdf
+│           │       ├── 20260426_161347_69ee71fbe96b0_CPSP_Contrato-de-Prestacion-de-Servicios-de-profesional-Ejemplo1-v3.docx
+│           │       ├── 20260427_091104_69ef6068200a1_QAP_Plan-de-pruebas-Ejemplo1-v3.pdf
+│           │       ├── 20260501_185553_69f52f7966376_Bitacoras-con-los-procesos-documentados-Ejemplo-v3.pdf
+│           │       ├── 20260501_185825_69f5301141689_Bitacoras-con-los-procesos-documentados-Ejemplo-v2.pdf
+│           │       ├── 20260504_121052_69f8c50c1f371_CP_Caso-de-Prueba-v3.docx
+│           │       ├── 20260504_125605_69f8cfa531b77_Protocolo_de_paso_a_producci__n-Ejemplo-v3.pdf
+│           │       └── 20260504_130048_69f8d0c052e2b_Acta_de_cierre_del_proyecto-Ejemplo-v3.pdf
+│           ├── 5
+│           │   ├── documents
+│           │   │   ├── 20260424_121455_69eb96ff6094f_projectcharter-ejemplo1-V3.pdf
+│           │   │   ├── 20260424_133755_69ebaa7308351_projectcharter-ejemplo1-V1.pdf
+│           │   │   ├── 20260429_183948_69f288b4e09ff_projectcharter-ejemplo2-V1.pdf
+│           │   │   ├── 20260429_184722_69f28a7a6950c_Documento_de_Requisitos_Ejemplo2-v2.dot
+│           │   │   ├── 20260501_185243_69f52ebb92744_QAP_Plan-de-pruebas-Ejemplo2-v1.pdf
+│           │   │   ├── 20260501_213915_69f555c353e8c_Bitacoras-con-los-procesos-documentados-Ejemplo-v2.pdf
+│           │   │   ├── 20260501_214013_69f555fd5af17_Bitacoras-con-los-procesos-documentados-Ejemplo-v3.pdf
+│           │   │   ├── 20260501_214218_69f5567a3c967_CP_Caso-de-Prueba-v3.docx
+│           │   │   ├── 20260501_214315_69f556b3ef074_Protocolo_de_paso_a_producci__n-Ejemplo-v2.pdf
+│           │   │   └── 20260501_214423_69f556f7177b6_Acta-de-cierrre-del-proyecto-Ejemplo-v3.docx
+│           │   └── resources
+│           │       ├── 20260501_190250_69f5311a326a88.27438053_image.png
+│           │       ├── 20260501_211749_69f550bd7e86e7.17866244_image.png
+│           │       └── 20260501_213752_69f55570e60d46.91010178_ColoniaCristian_2021_RoboticaProcesosEscritorio.pdf
+│           ├── 6
+│           │   └── documents
+│           │       ├── 20260424_125859_69eba15356165_projectcharter-ejemplo2-V3.pdf
+│           │       ├── 20260424_132517_69eba77d98faf_Documento_de_Requisitos_Ejemplo2-v3.dot
+│           │       ├── 20260424_133303_69eba94f1f6f8_NDA_Acuerdo-Confidencialidad-Ejemplo1-v1.pdf
+│           │       ├── 20260424_133333_69eba96d9d534_NDA_Acuerdo-Confidencialidad-Ejemplo1-v3.pdf
+│           │       ├── 20260504_152016_69f8f17056973_projectcharter-ejemplo1-V2.pdf
+│           │       ├── 20260504_152150_69f8f1cebc8f5_Documento_de_Requisitos_Ejemplo2-v2.dot
+│           │       ├── 20260504_152402_69f8f25211147_ANS_Acuerdo-Nivel-Servicio-Ejemplo1-v2.pdf
+│           │       ├── 20260504_152433_69f8f27163700_CPSP_Contrato-de-Prestacion-de-Servicios-de-profesional-Ejemplo1-v2.docx
+│           │       ├── 20260504_152725_69f8f31d49467_TDD_Documento_dise__o_t__cnico-Ejemplo1-V2.docx
+│           │       ├── 20260504_152915_69f8f38b23d5e_Bitacoras-con-los-procesos-documentados-Ejemplo-v2.pdf
+│           │       ├── 20260504_153030_69f8f3d68d730_CP_Caso-de-Prueba-v3.docx
+│           │       ├── 20260504_153207_69f8f4371a32b_Protocolo_de_paso_a_producci__n-Ejemplo-v1.pdf
+│           │       └── 20260504_153319_69f8f47fb5650_Acta_de_cierre_del_proyecto-Ejemplo-v1.pdf
+│           ├── 7
+│           │   └── documents
+│           │       ├── 20260424_141526_69ebb33ef00cb_projectcharter-ejemplo1-V3.pdf
+│           │       ├── 20260424_191208_69ebf8c8bd2ee_Documento_de_Requisitos_Ejemplo1-v1.dot
+│           │       ├── 20260504_155006_69f8f86e51b0d_projectcharter-plantilla-V1.pdf
+│           │       └── 20260504_161628_69f8fe9c375ee_Documento_de_Requisitos_Ejemplo1-v3.dot
+│           ├── 8
+│           │   └── documents
+│           │       ├── 20260504_161945_69f8ff610221f_projectcharter-ejemplo1-V2.pdf
+│           │       ├── 20260504_162041_69f8ff99b8ba1_projectcharter-ejemplo2-V2.pdf
+│           │       ├── 20260504_171751_69f90cff96d23_Documento_de_Requisitos_Ejemplo2-v1.dot
+│           │       ├── 20260504_172300_69f90e341fca7_Documento_de_Requisitos_Ejemplo1-v2.dot
+│           │       ├── 20260504_172640_69f90f10b8bd1_QAP_Plan-de-pruebas-Ejemplo2-v2.pdf
+│           │       ├── 20260504_173543_69f9112f983e0_Bitacoras-con-los-procesos-documentados-Ejemplo-v3.pdf
+│           │       ├── 7468ee9d640939116b8d72b76b553db3.txt
+│           │       ├── bed5b6cb1e302dc28888322ad3cf6cce.txt
+│           │       └── c5bae6f9110d9b101b3ca8fe7f254817.txt
+│           └── 9
+│               └── documents
+│                   └── 20260505_194022_69fa7fe6ac2db_T-ESPESD-003246.pdf
+└── test_mail.php
+
+79 directories, 247 files
