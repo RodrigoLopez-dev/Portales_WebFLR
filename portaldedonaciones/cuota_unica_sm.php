@@ -102,7 +102,7 @@ if ($monto !== '' && !ctype_digit($monto)) {
                     <div class="wizard-container">
                         <div class="card wizard-card" data-color="flr" id="wizard">
                             <div class="wizard-header" style="margin-top:-100px;">
-                                <img src="imagenes/cu_navidad25.jpg" width="100%"
+                                <img src="imagenes/invierno/HEADER_INVIERNO.jpg" width="100%"
                                     style="border-radius: 10px 10px 0 0;" alt="Fundación Las Rosas">
                             </div>
 

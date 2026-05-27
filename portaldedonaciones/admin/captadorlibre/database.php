@@ -244,11 +244,11 @@ class Database
     public function rut_exists($rut)
     {
         $sql = "
-            SELECT rut
-            FROM captador
-            WHERE rut = ?
-            LIMIT 1
-        ";
+        SELECT rut
+        FROM captador
+        WHERE rut = ?
+        LIMIT 1
+    ";
 
         $stmt = $this->con->prepare($sql);
 
@@ -258,10 +258,20 @@ class Database
         }
 
         $stmt->bind_param('s', $rut);
-        $stmt->execute();
 
-        $result = $stmt->get_result();
-        $exists = $result && $result->num_rows > 0;
+        if (!$stmt->execute()) {
+            error_log('Error ejecutando rut_exists captador: ' . $stmt->error);
+            $stmt->close();
+            return false;
+        }
+
+        $stmt->bind_result($rutEncontrado);
+
+        $exists = false;
+
+        if ($stmt->fetch()) {
+            $exists = true;
+        }
 
         $stmt->close();
 

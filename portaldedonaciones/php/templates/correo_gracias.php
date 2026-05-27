@@ -16,13 +16,13 @@
     </p>
 
     <p>
-        Desde la apertura del primer hogar en 1967, nuestra institución ha trabajado por seguir
-        cumpliendo la misión de acoger a las Personas Mayores más pobres del país, entregándoles
-        amor, cariño y los cuidados necesarios para que vivan su vejez con la dignidad que todos merecemos.
+        Gracias a tu generosidad, entregaremos el calor y el cuidado que tanto necesitan los más de 2.300 residentes de
+        nuestros 28 Hogares para enfrentar este crudo invierno. Tu apoyo es el motor constante que mantiene encendido el
+        cariño y la dignidad en cada una de las Personas Mayores a nuestro cuidado.
     </p>
 
     <p>
-        Gracias por transformar un cumpleaños ¡En un gesto de amor que nunca se olvida!
+        ¡Gracias por sumarte a un amor que trasciende la vida!
     </p>
 
     <p>

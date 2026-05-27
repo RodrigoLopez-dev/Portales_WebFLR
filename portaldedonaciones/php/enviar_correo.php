@@ -56,7 +56,7 @@ function enviarCorreoAgradecimiento($order_id, $codigo_autorizacion, $medio_pago
     }
 
     $para = $email;
-    $asunto = 'Tu regalo ha sido recibido con éxito';
+    $asunto = 'Tu donacion ha sido recibida con éxito';
 
     $nombreSafe = htmlspecialchars($nombre, ENT_QUOTES, 'UTF-8');
     $emailSafe = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
@@ -65,7 +65,7 @@ function enviarCorreoAgradecimiento($order_id, $codigo_autorizacion, $medio_pago
     $codigoSafe = htmlspecialchars($codigo_autorizacion, ENT_QUOTES, 'UTF-8');
     $montoSafe = number_format($monto, 0, ',', '.');
 
-    $bannerGraciasUrl = 'https://www.fundacionlasrosas.cl/portaldedonaciones/bannerGracias.jpg';
+    $bannerGraciasUrl = 'https://www.fundacionlasrosas.cl/portaldedonaciones/bannerGracias.png';
     $firmaUrl = 'https://www.flr.cl/firma';
     $bannerFirmaUrl = 'https://www.flr.cl/banner.jpg';
 

@@ -55,6 +55,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $proyecto = isset($_POST['proyecto']) ? trim($_POST['proyecto']) : '';
     $estado = isset($_POST['estado']) ? trim($_POST['estado']) : '';
 
+    error_log('[captador create POST] ' . print_r($_POST, true));
+    error_log('[captador create valores] oficina=' . var_export($oficina, true) . ' proyecto=' . var_export($proyecto, true) . ' estado=' . var_export($estado, true));
+
+
     if ($codigo === '') {
         $errors[] = 'El código es obligatorio.';
     }

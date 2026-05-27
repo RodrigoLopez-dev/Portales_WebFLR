@@ -20,6 +20,31 @@ $mes_ingreso = '';
 $proyecto = '';
 $estado = '';
 
+$oficinasPermitidas = array(
+    'Santiago',
+    'La Serena',
+    'Viña del Mar',
+    'Talca',
+    'Concepcion',
+    'Osorno',
+    'Valdivia',
+    'Temuco',
+    'Agencia Externa',
+    'Telemarketing'
+);
+
+$proyectosPermitidos = array(
+    'P1 - Reemplazo del Equipo',
+    'P2 - Aumento Dotacion',
+    'P3 - Temuco'
+);
+
+$estadosPermitidos = array(
+    'Trabajando',
+    'Licencia Médica',
+    'Desvinculado'
+);
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     captador_validate_csrf();
 
@@ -33,6 +58,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mes_ingreso = isset($_POST['mes_ingreso']) ? trim($_POST['mes_ingreso']) : '';
     $proyecto = isset($_POST['proyecto']) ? trim($_POST['proyecto']) : '';
     $estado = isset($_POST['estado']) ? trim($_POST['estado']) : '';
+
+    if ($proyecto === 'Proyecto 1') {
+        $proyecto = 'P1 - Reemplazo del Equipo';
+    } elseif ($proyecto === 'Proyecto 2') {
+        $proyecto = 'P2 - Aumento Dotacion';
+    } elseif ($proyecto === 'Proyecto 3') {
+        $proyecto = 'P3 - Temuco';
+    }
 
     if ($original_rut === '') {
         $errors[] = 'No se recibió el identificador original del captador.';
@@ -50,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = 'El RUT es obligatorio.';
     }
 
-    if (strlen($rut) > 11) {
+    if (strlen($rut) > 12) {
         $errors[] = 'El RUT no puede superar los 11 caracteres.';
     }
 
@@ -124,6 +157,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mes_ingreso = $row->mes_ingreso;
     $proyecto = $row->proyecto;
     $estado = $row->estado;
+
+    if ($proyecto === 'Proyecto 1') {
+        $proyecto = 'P1 - Reemplazo del Equipo';
+    } elseif ($proyecto === 'Proyecto 2') {
+        $proyecto = 'P2 - Aumento Dotacion';
+    } elseif ($proyecto === 'Proyecto 3') {
+        $proyecto = 'P3 - Temuco';
+    }
 }
 
 ?>
